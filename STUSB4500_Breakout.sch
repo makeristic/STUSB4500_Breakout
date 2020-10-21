@@ -599,44 +599,6 @@ $EndComp
 Text GLabel 5800 6800 3    50   Input ~ 0
 GND
 $Comp
-L Connector:Conn_01x04_Female J5
-U 1 1 5F98700A
-P 3800 5400
-F 0 "J5" H 3828 5376 50  0000 L CNN
-F 1 "Conn_01x04_Female" H 3828 5285 50  0000 L CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" H 3800 5400 50  0001 C CNN
-F 3 "~" H 3800 5400 50  0001 C CNN
-	1    3800 5400
-	1    0    0    -1  
-$EndComp
-$Comp
-L Connector:Conn_01x04_Female J6
-U 1 1 5F987A24
-P 3800 6050
-F 0 "J6" H 3828 6026 50  0000 L CNN
-F 1 "Conn_01x04_Female" H 3828 5935 50  0000 L CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" H 3800 6050 50  0001 C CNN
-F 3 "~" H 3800 6050 50  0001 C CNN
-	1    3800 6050
-	1    0    0    -1  
-$EndComp
-Text GLabel 3600 5300 0    50   Input ~ 0
-VCC
-Text GLabel 3600 5400 0    50   Input ~ 0
-VSNK
-Text GLabel 3600 5500 0    50   Input ~ 0
-GND
-Text GLabel 3600 5600 0    50   Input ~ 0
-ATTACH
-Text GLabel 3600 6050 0    50   Input ~ 0
-SCL
-Text GLabel 3600 6150 0    50   Input ~ 0
-SDA
-Text GLabel 3600 6250 0    50   Input ~ 0
-ALERT
-Text GLabel 3600 5950 0    50   Input ~ 0
-GPIO
-$Comp
 L Connector:USB_C_Receptacle_USB2.0 J1
 U 1 1 5F8E62E1
 P 1450 3150
