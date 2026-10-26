@@ -10,7 +10,7 @@ The README identifies the board, links the actual design and fabrication files, 
 - [x] Expand the README, preserve CC BY 4.0, add its full text, and ignore generated editor state (completed: 2026-10-26).
 - [x] Set and verify GitHub description and topics (completed: 2026-10-26).
 - [x] Check local Markdown links, ignore rules, whitespace, and the complete diff (completed: 2026-10-26; 11 local links resolve, design sources and exports unchanged).
-- [ ] Commit, push, and open a PR.
+- [x] Commit, push, and open [PR #1](https://github.com/makeristic/STUSB4500_Breakout/pull/1) (completed: 2026-10-26).
 
 ## Findings and limits
 
