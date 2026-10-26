@@ -1,6 +1,6 @@
 # Repository discoverability
 
-## Acceptance criteria
+## Initial documentation acceptance criteria
 
 The README identifies the board, links the actual design and fabrication files, explains legacy KiCad dependencies, and distinguishes available artifacts from unverified operation. GitHub has an accurate description and relevant topics. Existing CC BY 4.0 licensing and third-party rights remain intact. Only documentation, licence text, and editor ignore rules change.
 
@@ -24,4 +24,4 @@ The authorised follow-up extends this PR to source-level corrections supported b
 - [x] Run KiCad nightly PCB DRC on temporary copies; distinguish historical/default-rule findings from proven defects (completed: 2026-10-27).
 - [x] Verify relevant package/pin and power-interface assumptions against primary manufacturer sources (completed: 2026-10-27).
 - [x] Apply and verify minimal supported corrections; record unresolved circuit and manufacturing work in `docs/code-audit-report.md` (completed: 2026-10-27).
-- [ ] Update README/PR scope, review the complete diff, commit, push, and return for root review before merge.
+- [x] Update README/PR scope, review the complete diff, commit, push, and return for root review before merge (completed: 2026-10-27; same PR #1, no merge performed by this agent).
