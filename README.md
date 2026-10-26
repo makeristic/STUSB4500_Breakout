@@ -36,6 +36,8 @@ There is no standalone bill of materials, host firmware, or STUSB4500 configurat
 3. Clone [Makeristic-KiCad-Library](https://github.com/makeristic/Makeristic-KiCad-Library) alongside this repository. The project tables resolve its legacy symbols and `.pretty` footprints under the nickname `Makeristic-KiCad-Library` from that sibling directory. The design references its MOSFET, mounting-hole, and STEMMA QT logo assets. Keep the committed symbol cache with the schematic; it preserves historical symbol geometry and pin mapping.
 4. Resolve missing-library warnings before editing, then review the schematic, PCB, design rules, and fabrication outputs together. Included exports are historical snapshots and have not been regenerated as part of this documentation update.
 
+For nightly KiCad netlist checks, follow the [audit's cache-only export procedure](docs/code-audit-report.md). Globally resolving the same legacy USB symbol in nightly 10.99.0 omitted the shield pin from the export; the audit records the exact conditions. This repository retains its original legacy design formats.
+
 ## Feedback and related projects
 
 Use [Issues](https://github.com/makeristic/STUSB4500_Breakout/issues) for questions, build reports, or design corrections. Include the commit, KiCad version, and relevant schematic references; for pull requests, explain electrical changes and which exports you regenerated.

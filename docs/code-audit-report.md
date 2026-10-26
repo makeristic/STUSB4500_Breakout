@@ -19,7 +19,9 @@ The required logical split is U1.23 plus C3.1 on a dedicated decoupling net, kee
 
 ## Verification
 
-A fresh schematic netlist was exported successfully after restoring the cache. Its complete pin-connectivity graph matches the corrected stored netlist across **102 pins**. The comparison ignores generated net-name spelling changes between KiCad versions, not connectivity. All 29 schematic components agree with their PCB value and footprint assignments. The PCB additionally contains logo graphics and three labelled test pads, which intentionally do not appear in the schematic.
+A fresh schematic netlist was exported successfully using the committed cache with **no globally registered symbol libraries**. In that mode its complete pin-connectivity graph matches the corrected stored netlist across **102 pins**, including J1.S1 on GND. The comparison ignores generated net-name spelling changes between KiCad versions, not pins or connectivity. All 29 schematic components agree with their PCB value and footprint assignments. The PCB additionally contains logo graphics and three labelled test pads, which intentionally do not appear in the schematic.
+
+**Nightly export depends on library-resolution mode.** Independent validation found that registering the same KiCad 5.1.7 `Connector.lib` globally causes nightly 10.99.0's fresh export to omit J1.S1, leaving 101 pins; all shared-pin connectivity otherwise agrees. The cache and global library define the same shield pin at the same coordinate, and SVG exports in both modes show the shield endpoint and its ground wire meeting at `(29.21,102.87)` mm. This appears to be a nightly legacy import/export inconsistency, rather than evidence that the intended shield grounding changed. No schematic or library geometry was altered to mask it. A globally resolved export must not be described as matching the complete historical graph.
 
 With an isolated configuration loading historical symbols, current installed footprints, and the custom libraries, ERC reports **4 findings**: two supply-drive declarations and two labels attached to only one pin. These do not detect the regulator/indicator misuse described above.
 
@@ -31,10 +33,16 @@ Refilled PCB DRC reports **45 findings**, with **0 unconnected items**:
 
 These counts use modern nightly rules and best-effort legacy zone conversion; they are not an interpretation of a historical fabricator's rules. For example, J1's locating holes produce 0.1651–0.2150 mm clearances against a 0.25 mm default, and the board edge default is 0.5 mm. Review them against the actual connector drawing, board process, and stackup rather than loosening rules to obtain a clean report.
 
-Representative commands, run on temporary copies with the cache and dependencies available:
+The matching netlist command explicitly isolates the global configuration; run it with the committed cache beside the schematic:
 
 ```sh
-kicad-cli-nightly sch export netlist --output /tmp/stusb.net STUSB4500_Breakout.sch
+makeristic_audit_config=$(mktemp -d)
+XDG_CONFIG_HOME="$makeristic_audit_config" kicad-cli-nightly sch export netlist --output /tmp/stusb.net STUSB4500_Breakout.sch
+```
+
+ERC/DRC used a separate temporary configuration registering the historical symbol libraries, installed footprint libraries, and custom dependencies. Those reports are rule checks, not proof of full netlist parity. Representative commands in that configured environment:
+
+```sh
 kicad-cli-nightly sch erc --format json --severity-all --exit-code-violations --output /tmp/stusb-erc.json STUSB4500_Breakout.sch
 kicad-cli-nightly pcb drc --format json --severity-all --refill-zones --exit-code-violations --output /tmp/stusb-drc.json STUSB4500_Breakout.kicad_pcb
 ```
