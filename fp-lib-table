@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name Makeristic-KiCad-Library)(type KiCad)(uri ${KIPRJMOD}/../Makeristic-KiCad-Library/Makeristic-KiCad-Library.pretty)(options "")(descr "Makeristic sibling checkout"))
+)
