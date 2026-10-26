@@ -1,0 +1,9 @@
+# KiCad editor state and backups; retain design sources and fabrication exports.
+fp-info-cache
+*.bak
+*.sch-bak
+*.kicad_pcb-bak
+*.kicad_prl
+*-backups/
+_autosave-*
+~*.lck
